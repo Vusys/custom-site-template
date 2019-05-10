@@ -70,3 +70,13 @@ else
     sed -i "s#{{TLS_CERT}}##" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
     sed -i "s#{{TLS_KEY}}##" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 fi
+
+noroot wp plugin install woocommerce --version=3.5.7
+noroot wp plugin install advanced-cron-manager query-monitor simply-show-hooks wp-reset disable-wordpress-updates --activate
+noroot wp plugin delete hello akismet
+noroot wp theme install storefront
+
+noroot wp option update woocommerce_store_address "Marmion House"
+noroot wp option update woocommerce_store_address_2 ""
+noroot wp option update woocommerce_store_city "Worcester"
+noroot wp option update woocommerce_store_postcode "WR1 2HB"
